@@ -109,7 +109,7 @@ const Header: React.FC = () => {
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
 
-  const { user, loading } = useAuth(); // use useAuth hook
+  const { user, loading } = useAuth();
   const theme = useTheme();
 
   return (

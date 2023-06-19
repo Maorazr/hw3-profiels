@@ -57,7 +57,13 @@ const Post: React.FC<PostProps> = (props) => {
       <div>
         {profilePic && (
           <img
-            src={profilePic}
+            src={profilePic || "../../public/Default.png"}
+            onLoad={(e) => {
+              const target = e.target as HTMLImageElement;
+              if (profilePic) {
+                target.src = profilePic;
+              }
+            }}
             alt="profile"
             style={{
               width: "100px",

@@ -34,7 +34,16 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
       style={postStyles}
     >
       {authorProfilePic && (
-        <img src={authorProfilePic} className={styles.profilePic} />
+        <img
+          src={authorProfilePic || "../../public/Default.png"}
+          onLoad={(e) => {
+            const target = e.target as HTMLImageElement;
+            if (authorProfilePic) {
+              target.src = authorProfilePic;
+            }
+          }}
+          className={styles.profilePic}
+        />
       )}
       {post.videoUrl && (
         <img
